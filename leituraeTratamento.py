@@ -1,7 +1,8 @@
 from numpy.core.fromnumeric import shape
+import numpy as np
 import pandas as pd
 import matplotlib as mpl
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import show, bar
 
 url_dados_origem = 'https://github.com/Bruno-Elvis/imersaoDados/blob/master/dados/dados_experimentos.zip?raw=true'
 dados_origem_local = 'E:\Arquivos\LEARNS\Python\ImersaoDados\dados\dados_experimentos.csv'
@@ -38,14 +39,46 @@ print()
 
 # NORMALIZAÇÃO #
 proporcao_tratamento = dados['tratamento'].value_counts(normalize = True) * 100
-proporção_dose = dados['dose'].value_counts(normalize = True) * 100
+proporcao_dose = dados['dose'].value_counts(normalize = True) * 100
+proporcao_tempo = dados['tempo'].value_counts(normalize = True) * 100
 
-print("Proporção da classe 'tratamento':\n", proporcao_tratamento)
+print("Proporção da classe 'tempo':\n", proporcao_tempo, type(proporcao_tempo))
+print("Proporção ('tempo'):\n", proporcao_tempo.values)
+print("Controle ('tempo'):\n", controle_tempo)
+print()
+print("Apresentar apenas os valores dos índices da consulta no DataFrame:\n", dados['droga'].value_counts().index[:5])
+print()
+''' plotando graficos de barras
+bar(controle_tempo, proporcao_tempo)
+ylabel('FREQUÊNCIA')
+xlabel('TEMPO')
+title('CONTROLE-TEMPO')
+show()
+'''
+print("Quantidade de Drogas via método 'shape': ", shape(dados['droga'].unique()))
+print()
+print("Quantidade de Drogas via método 'len': ", len(dados['droga'].unique()))
+print()
+print("Quantidade de Drogas via método 'nunique': ", dados['droga'].nunique())
+print()
+print(dados[dados['g-0'] > 0].head()) # Definição de 'Máscara' nos dados de origem, onde 'g-0' é maior que 0 (5 primeiros)
 print()
 
-plt.pie(proporcao_tratamento)
-plt.show()
-print()
+''' Plotando Graficos com a lib 'seaborn'
+sns.countplot(x = 'droga', data=dados)
 
-print(shape(dados['droga'].unique()))
-print(dados['droga'].value_counts())
+show()
+'''
+#tentando renomear colunas
+
+colunas_dados = np.array(dados.columns)
+
+print("Colunas: ", colunas_dados)
+# print(dados.rename(columns={'g-0' : 'g0'}).head())
+# Utilizar o parâmetro inplace=true' para definir e atribuir as alterações no DataFrame de origem (dados)
+# df.rename({'a': 'X', 'b': 'Y'}, axis=1, inplace=True)
+# df2 = df.set_axis(['V', 'W', 'X', 'Y', 'Z'], axis=1, inplace=False)
+print()
+#print(dados.query('tempo > 0'))
+print()
+# renomear as conulas de genes removendo o 'hífen' pois pode gerar erros no interpretador python
