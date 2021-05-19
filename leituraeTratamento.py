@@ -2,7 +2,7 @@ from numpy.core.fromnumeric import shape
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
-from matplotlib.pyplot import show, bar, ylabel, xlabel, title
+from matplotlib.pyplot import axis, show, bar, xlabel, ylabel, title, plot
 import seaborn as sns
 
 url_dados_origem = 'https://github.com/Bruno-Elvis/imersaoDados/blob/master/dados/dados_experimentos.zip?raw=true'
@@ -99,6 +99,8 @@ show()
 tempo_index = dados['tempo'].value_counts().index
 tempo_val = proporcao_tempo.values
 
+print("INDICES:::: ", ['24', '36', '72'])
+print("VALORES:::: ", tempo_val)
 ylabel('FREQUÊNCIA')
 xlabel('TEMPO')
 title('CONTORLE-TEMPO')
@@ -106,18 +108,3 @@ title('CONTORLE-TEMPO')
 bar(tempo_index, tempo_val)
 show()
 '''
-
-### GRÁFICO DE BARRAS (seaborn) ###
-sns.countplot(x = 'droga', data=dados)
-
-sns.countplot(data=dados,  x=dados['droga'], y='FREQUÊNCIA')
-show()
-
-# tentando renomear colunas
-# colunas_dados = np.array(dados.columns)
-# print("Colunas: ", colunas_dados)
-# print(dados.rename(columns={'g-0' : 'g0'}).head()) #renomeando a coluna 'g-0' para 'g0'
-# Utilizar o parâmetro inplace=true' para definir e atribuir as alterações no DataFrame de origem (dados)
-# df.rename({'a': 'X', 'b': 'Y'}, inplace=True)
-print()
-# renomear as conulas de genes removendo o 'hífen' pois pode gerar erros no interpretador python
