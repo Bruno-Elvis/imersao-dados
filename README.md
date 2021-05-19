@@ -1,1 +1,1 @@
-# Participação e desenvolvimento de Prejeto via evento "ImersaoDadosAlura" da Alura Cursos, onde será feita a exploração de dados do ramo de Drug Discovery, com Python e as bibliotecas de manipulação de dados 'pandas' e 'numpy'.
+# Participação e desenvolvimento de Prejeto via evento "ImersaoDadosAlura" da Alura Cursos, onde será feita a exploração de dados do ramo de Drug Discovery, com Python e as bibliotecas de manipulação de dados 'Pandas', 'NumPy' e visualização de dados 'Matplotlib' e 'Seaborn' .
