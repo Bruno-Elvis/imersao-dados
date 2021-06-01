@@ -2,9 +2,8 @@ from numpy.core.fromnumeric import shape
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
-from matplotlib.pyplot import axis, figure, show, bar, xlabel, ylabel, title, plot
+import matplotlib.pyplot as plt
 import seaborn as sns
-from six import assertCountEqual
 
 url_dados_origem = 'https://github.com/Bruno-Elvis/imersaoDados/blob/master/dados/dados_experimentos.zip?raw=true'
 dados_origem_local = 'E:\Arquivos\LEARNS\Python\ImersaoDados\dados\dados_experimentos.csv'
@@ -28,10 +27,30 @@ print("Print", idx_compostos)
 consulta_compostos = dados.query('composto in @idx_compostos')
 
 ### GRÁFICO DE BARRAS COM A LIB (seabor) ###
-sns.set() # Setando as configs padrões de exibição de gráficos da lib 'seaborn'
-figure(figsize=(8, 6)) # Definindo a configuração de dimensões do gráfico plotado
-ax = sns.countplot(x = 'composto', data=consulta_compostos, order=idx_compostos) # Plot ordenado de gráfico de barras das frequências de 'compostos' mais testados.
-ax.set_title('5 COMPOSTOS MAIS FREQUENTES') # Definindo um título para a visualização corrente
-ylabel('FREQUÊNCIA')
-xlabel('COMPOSTOS')
-show()
+sns.set() # Setando as configs padrões de exibição de gráficos da lib 'seaborn'.
+plt.figure(figsize = (8, 6)) # Definindo a configuração de dimensões do gráfico plotado.
+
+ax = sns.countplot(x = 'composto', data = consulta_compostos, order = idx_compostos) # Plot ordenado de gráfico de barras das frequências de 'compostos' mais testados.
+
+# CONFIGURANDO AS LABELS DO GRÁFICO (seaborn) #
+'''
+formatFonte = {'family' : 'normal',
+        'weight' : 'bold',
+        'size'   : 15} # Define a formatação global da fonte nas visualizações.
+
+ax.set_title('5 COMPOSTOS MAIS FREQUENTES', formatFonte) # Definindo um título para a visualização corrente
+ax.set_ylabel('FREQUÊNCIA', formatFonte)
+ax.set_xlabel('COMPOSTOS', formatFonte)
+'''
+# OR (Label Individualmente) #
+ax.set_title('5 COMPOSTOS MAIS FREQUENTES', size = 14, family = 'normal', weight = 'bold') # Definindo um título para a visualização corrente.
+ax.set_ylabel('FREQUÊNCIA', size = 12)
+ax.set_xlabel('COMPOSTOS', size = 12)
+# OR #
+# CONFIGURANDO AS LABELS DO GRÁFICO (matplotlib/pyplot) #
+'''
+plt.ylabel('FREQUÊNCIA')
+plt.xlabel('COMPOSTOS')
+plt.title('5 COMPOSTOS MAIS FREQUENTES')
+'''
+plt.show()
