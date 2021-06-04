@@ -1,1 +1,1 @@
-# Participação e desenvolvimento de Prejeto via evento "ImersaoDadosAlura", onde será feita a exploração de dados do ramo 'Drug Discovery', com Python e as bibliotecas de manipulação de dados 'Pandas', 'NumPy' e visualização de dados 'Matplotlib' e 'Seaborn' .
+# Participação e desenvolvimento de Prejeto via evento "ImersaoDadosAlura", onde será feita a exploração de dados do ramo 'Drug Discovery', com Python e as bibliotecas de manipulação de dados 'Pandas', 'NumPy' e visualização de dados 'Matplotlib' e 'Seaborn' com a IDE 'Visual Studio Code (VSC)'.
