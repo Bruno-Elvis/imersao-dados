@@ -43,7 +43,7 @@ ax.set_ylabel('FREQUÊNCIA', formatFonte)
 ax.set_xlabel('COMPOSTOS', formatFonte)
 '''
 # OR (Label Individualmente) #
-ax.set_title('5 COMPOSTOS MAIS FREQUENTES', size = 14, family = 'normal', weight = 'bold') # Definindo um título para a visualização corrente.
+ax.set_title('5 COMPOSTOS MAIS FREQUENTES', size = 14, family = '', weight = 'bold') # Definindo um título para a visualização corrente.
 ax.set_ylabel('FREQUÊNCIA', size = 12)
 ax.set_xlabel('COMPOSTOS', size = 12)
 # OR #
@@ -53,4 +53,23 @@ plt.ylabel('FREQUÊNCIA')
 plt.xlabel('COMPOSTOS')
 plt.title('5 COMPOSTOS MAIS FREQUENTES')
 '''
+plt.show()
+print()
+
+#VERIFICANDO AS DIMENÇÕES DE CADA COMPOSTO
+
+tam_g0 = dados['g-0'].nunique()
+print("Quantidade de resultados do composto 'g-0': ", tam_g0)
+print()
+
+result_max_g0 = dados['g-0'].max()
+result_min_g0 = dados['g-0'].min()
+print("Valor mínimo em g0 = {}, valor máximo = {}".format(result_min_g0, result_max_g0))
+print()
+
+# PLOTANDO HISTOGRAMA DA 'g-0' #
+
+dados['g-0'].hist(bins = 100)
+#Me apresentou através do grafico apresentado ser uma 'curva normal' dos resultados #
+
 plt.show()
