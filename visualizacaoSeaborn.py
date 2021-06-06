@@ -70,6 +70,16 @@ print()
 # PLOTANDO HISTOGRAMA DA 'g-0' #
 
 dados['g-0'].hist(bins = 100)
+plt.ylabel('FREQUÊNCIA')
+plt.xlabel('RESULTADOS')
+plt.title("HISTOGRAMA DOS RESULTADOS NA 'G-0'", weight = 'bold')
+plt.subplot(2, 1, 1)
 #Me apresentou através do grafico apresentado ser uma 'curva normal' dos resultados #
+
+dados['g-5'].hist(bins = 100)
+plt.ylabel('FREQUÊNCIA')
+plt.xlabel('RESULTADOS')
+plt.title("HISTOGRAMA DOS RESULTADOS NA 'G-5'", weight = 'bold')
+plt.subplot(2, 1, 2)
 
 plt.show()
